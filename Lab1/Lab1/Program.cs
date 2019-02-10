@@ -7,7 +7,7 @@ namespace Lab1
 	{
 		static void Main(string[] args)
 		{
-			var fleet = CommandCenter.Fleet;
+			var fleet = CommandCenter.Instance.Fleet;
 			var spaceshipFactory = fleet.GetSpaceshipFactory();
 			var stormtrooperFactory = fleet.GetStormtrooperFactory();
 
@@ -19,11 +19,14 @@ namespace Lab1
 			};
 
 			var defaultSandTrooper = stormtrooperFactory
-				.CreateStormtrooper("Azaz", "is usually found on Tatooine.", "Sandtrooper", spaceships[1]);
+				.CreateStormtrooper("Azaz", "is usually found on Tatooine.",
+				"Sandtrooper", spaceships[1]);
 			var defaultDeathTrooper = stormtrooperFactory
-				.CreateStormtrooper("Pipi", "is very dangerous. Much Ouch.", "Deathtrooper", spaceships[0]);
+				.CreateStormtrooper("Pipi", "is very dangerous. Much Ouch.",
+				"Deathtrooper", spaceships[0]);
 			var defaultScouttrooper = stormtrooperFactory
-				.CreateStormtrooper("Kermit", "has recon and survival skills.", "Scouttrooper", spaceships[2]);
+				.CreateStormtrooper("Kermit", "has recon and survival skills.",
+				"Scouttrooper", spaceships[2]);
 
 			var stormtroopers = new List<IStormtrooper>
 			{

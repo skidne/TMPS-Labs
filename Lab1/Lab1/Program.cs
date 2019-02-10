@@ -13,17 +13,17 @@ namespace Lab1
 
 			var spaceships = new List<Spaceship>
 			{
-				spaceshipFactory.CreateCombatSpaceship("Dreadnaught SSV"),
-				spaceshipFactory.CreateDefenseSpaceship("Space Star V"),
-				spaceshipFactory.CreateTransportSpaceship("Carrier Vispa")
+				spaceshipFactory.CreateSpaceship("Dreadnaught SSV", SpaceshipType.Combat),
+				spaceshipFactory.CreateSpaceship("Space Star V", SpaceshipType.Defense),
+				spaceshipFactory.CreateSpaceship("Carrier Vispa", SpaceshipType.Transport)
 			};
 
 			var defaultSandTrooper = stormtrooperFactory
-				.CreateSandtrooper("Azaz", spaceships[1]);
+				.CreateStormtrooper("Azaz", "is usually found on Tatooine.", "Sandtrooper", spaceships[1]);
 			var defaultDeathTrooper = stormtrooperFactory
-				.CreateDeathtrooper("Pipi", spaceships[0]);
+				.CreateStormtrooper("Pipi", "is very dangerous. Much Ouch.", "Deathtrooper", spaceships[0]);
 			var defaultScouttrooper = stormtrooperFactory
-				.CreateScouttrooper("Kermit", spaceships[2]);
+				.CreateStormtrooper("Kermit", "has recon and survival skills.", "Scouttrooper", spaceships[2]);
 
 			var stormtroopers = new List<IStormtrooper>
 			{

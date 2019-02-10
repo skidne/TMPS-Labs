@@ -1,5 +1,10 @@
 ﻿namespace Lab1
 {
+	public enum SpaceshipType
+	{
+		Combat, Defense, Transport
+	}
+
 	public enum Fuselage
 	{
 		Framework, Monocoque, SemiMonocoque
@@ -39,73 +44,24 @@
 
 	public interface ISpaceshipBuilder
 	{
-		Spaceship Spaceship { get; }
-
-		void BuildFuselage();
-		void BuildEngines();
-		void BuildAvionics();
-		void BuildWeaponry();
+		void BuildFuselage(Fuselage f);
+		void BuildEngines(Engines e);
+		void BuildAvionics(Avionics a);
+		void BuildWeaponry(Weaponry w);
+		Spaceship BuildSpaceship();
 	}
 
-	public class CombatSpaceshipBuilder : ISpaceshipBuilder
+	public class SpaceshipBuilder : ISpaceshipBuilder
 	{
-		public Spaceship Spaceship { get; }
+		private Spaceship spaceship;
 
-		public CombatSpaceshipBuilder(string name) =>
-			Spaceship = new Spaceship(name);
+		public SpaceshipBuilder(string name) =>
+			spaceship = new Spaceship(name);
 
-		public void BuildFuselage() =>
-			Spaceship.Fuselage = Fuselage.SemiMonocoque;
-		public void BuildEngines() =>
-			Spaceship.Engines = Engines.Photonic;
-		public void BuildAvionics() =>
-			Spaceship.Avionics = Avionics.Rockwell;
-		public void BuildWeaponry() =>
-			Spaceship.Weaponry = Weaponry.Missile;
-	}
-
-	public class DefenseSpaceshipBuilder : ISpaceshipBuilder
-	{
-		public Spaceship Spaceship { get; }
-
-		public DefenseSpaceshipBuilder(string name) =>
-			Spaceship = new Spaceship(name);
-
-		public void BuildFuselage() =>
-			Spaceship.Fuselage = Fuselage.Monocoque;
-		public void BuildEngines() =>
-			Spaceship.Engines = Engines.Quantum;
-		public void BuildAvionics() =>
-			Spaceship.Avionics = Avionics.Bendix;
-		public void BuildWeaponry() =>
-			Spaceship.Weaponry = Weaponry.Kinetic;
-	}
-
-	public class TransportSpaceshipBuilder : ISpaceshipBuilder
-	{
-		public Spaceship Spaceship { get; }
-
-		public TransportSpaceshipBuilder(string name) =>
-			Spaceship = new Spaceship(name);
-
-		public void BuildFuselage() =>
-			Spaceship.Fuselage = Fuselage.Framework;
-		public void BuildEngines() =>
-			Spaceship.Engines = Engines.FTL;
-		public void BuildAvionics() =>
-			Spaceship.Avionics = Avionics.Proline;
-		public void BuildWeaponry() =>
-			Spaceship.Weaponry = Weaponry.Beam;
-	}
-
-	public class SpaceshipManufacturer
-	{
-		public void Build(ISpaceshipBuilder builder)
-		{
-			builder.BuildFuselage();
-			builder.BuildEngines();
-			builder.BuildAvionics();
-			builder.BuildWeaponry();
-		}
+		public void BuildFuselage(Fuselage f) => spaceship.Fuselage = f;
+		public void BuildEngines(Engines e) => spaceship.Engines = e;
+		public void BuildAvionics(Avionics a) => spaceship.Avionics = a;
+		public void BuildWeaponry(Weaponry w) => spaceship.Weaponry = w;
+		public Spaceship BuildSpaceship() => spaceship;
 	}
 }

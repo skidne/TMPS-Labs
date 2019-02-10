@@ -2,19 +2,22 @@
 {
 	public interface IStormtrooper
 	{
-		string Identifier { get; }
 		Spaceship Spaceship { get; }
 		IStormtrooper Clone();
 	}
 
-	abstract class Stormtrooper : IStormtrooper
+	class Stormtrooper : IStormtrooper
 	{
 		public string Identifier { get; }
+		public string Skill { get; }
+		public string Spec { get; }
 		public Spaceship Spaceship { get; }
 
-		public Stormtrooper(string id, Spaceship s)
+		public Stormtrooper(string id, string sk, string sp, Spaceship s)
 		{
 			Identifier = id;
+			Skill = sk;
+			Spec = sp;
 			Spaceship = s;
 		}
 
@@ -23,40 +26,9 @@
 			return MemberwiseClone() as IStormtrooper;
 		}
 
-		public abstract override string ToString();
-	}
-
-	class Sandtrooper : Stormtrooper
-	{
-		public Sandtrooper(string id, Spaceship s) : base(id, s) { }
-
 		public override string ToString()
 		{
-			return $"{Identifier} of {Spaceship.Name} is a Sandtrooper " +
-				$"usually found on Tatooine.";
-		}
-	}
-
-	class Deathtrooper : Stormtrooper
-	{
-		public Deathtrooper(string id, Spaceship s) : base(id, s) { }
-
-		public override string ToString()
-		{
-			return $"{Identifier} of {Spaceship.Name} is a Deathtrooper. " +
-				$"Very dangerous. Much Ouch. If they don't miss, ofc. " +
-				$"Which is. Always. Hmmm.";
-		}
-	}
-
-	class Scouttrooper : Stormtrooper
-	{
-		public Scouttrooper(string id, Spaceship s) : base(id, s) { }
-
-		public override string ToString()
-		{
-			return $"{Identifier} of {Spaceship.Name} is a Scouttrooper with " +
-				$"recon and survival skills.";
+			return $"{Identifier} of {Spaceship.Name} is a {Spec} and {Skill}";
 		}
 	}
 }

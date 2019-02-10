@@ -2,37 +2,39 @@
 {
 	public interface ISpaceshipFactory
 	{
-		Spaceship CreateCombatSpaceship(string name);
-		Spaceship CreateDefenseSpaceship(string name);
-		Spaceship CreateTransportSpaceship(string name);
+		Spaceship CreateSpaceship(string name, SpaceshipType type);
 	}
 	
 	public class SpaceshipFactory : ISpaceshipFactory
 	{
-		private SpaceshipManufacturer spaceshipManufacturer;
-
-		public SpaceshipFactory() =>
-			spaceshipManufacturer = new SpaceshipManufacturer();
-
-		public Spaceship CreateCombatSpaceship(string name)
+		public Spaceship CreateSpaceship(string name, SpaceshipType type)
 		{
-			ISpaceshipBuilder builder = new CombatSpaceshipBuilder(name);
-			spaceshipManufacturer.Build(builder);
-			return builder.Spaceship;
-		}
+			ISpaceshipBuilder sb = new SpaceshipBuilder(name);
 
-		public Spaceship CreateDefenseSpaceship(string name)
-		{
-			ISpaceshipBuilder builder = new DefenseSpaceshipBuilder(name);
-			spaceshipManufacturer.Build(builder);
-			return builder.Spaceship;
-		}
+			switch (type)
+			{
+				case SpaceshipType.Combat:
+					sb.BuildFuselage(Fuselage.SemiMonocoque);
+					sb.BuildEngines(Engines.Photonic);
+					sb.BuildAvionics(Avionics.Rockwell);
+					sb.BuildWeaponry(Weaponry.Missile);
+					return sb.BuildSpaceship();
 
-		public Spaceship CreateTransportSpaceship(string name)
-		{
-			ISpaceshipBuilder builder = new TransportSpaceshipBuilder(name);
-			spaceshipManufacturer.Build(builder);
-			return builder.Spaceship;
+				case SpaceshipType.Defense:
+					sb.BuildFuselage(Fuselage.Monocoque);
+					sb.BuildEngines(Engines.Quantum);
+					sb.BuildAvionics(Avionics.Bendix);
+					sb.BuildWeaponry(Weaponry.Kinetic);
+					return sb.BuildSpaceship();
+
+				case SpaceshipType.Transport:
+					sb.BuildFuselage(Fuselage.Framework);
+					sb.BuildEngines(Engines.FTL);
+					sb.BuildAvionics(Avionics.Proline);
+					sb.BuildWeaponry(Weaponry.Beam);
+					return sb.BuildSpaceship();
+			}
+			return null;
 		}
 	}
 }

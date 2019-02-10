@@ -2,12 +2,14 @@
 {
 	public interface IStormtrooperFactory
 	{
-		IStormtrooper CreateStormtrooper(string id, string sk, string sp, Spaceship s);
+		IStormtrooper CreateStormtrooper(string identifier,
+			string skill, string spec, Spaceship spaceship);
 	}
 
 	class StormtrooperFactory : IStormtrooperFactory
 	{
-		public IStormtrooper CreateStormtrooper(string id, string sk, string sp, Spaceship s) =>
-			new Stormtrooper(id, sk, sp, s);
+		public IStormtrooper CreateStormtrooper(string identifier,
+			string skill, string spec, Spaceship spaceship) =>
+				new Stormtrooper(identifier, skill, spec, spaceship);
 	}
 }

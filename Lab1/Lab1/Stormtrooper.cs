@@ -2,7 +2,6 @@
 {
 	public interface IStormtrooper
 	{
-		Spaceship Spaceship { get; }
 		IStormtrooper Clone();
 	}
 
@@ -13,12 +12,12 @@
 		public string Spec { get; }
 		public Spaceship Spaceship { get; }
 
-		public Stormtrooper(string id, string sk, string sp, Spaceship s)
+		public Stormtrooper(string identifier, string skill, string spec, Spaceship spaceship)
 		{
-			Identifier = id;
-			Skill = sk;
-			Spec = sp;
-			Spaceship = s;
+			Identifier = identifier;
+			Skill = skill;
+			Spec = spec;
+			Spaceship = spaceship;
 		}
 
 		public IStormtrooper Clone()

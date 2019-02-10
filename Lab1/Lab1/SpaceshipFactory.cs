@@ -18,6 +18,7 @@
 					builder.BuildEngines(Engines.Photonic);
 					builder.BuildAvionics(Avionics.Rockwell);
 					builder.BuildWeaponry(Weaponry.Missile);
+					builder.BuildType(SpaceshipType.Combat);
 					return builder.BuildSpaceship();
 
 				case SpaceshipType.Defense:
@@ -25,6 +26,7 @@
 					builder.BuildEngines(Engines.Quantum);
 					builder.BuildAvionics(Avionics.Bendix);
 					builder.BuildWeaponry(Weaponry.Kinetic);
+					builder.BuildType(SpaceshipType.Defense);
 					return builder.BuildSpaceship();
 
 				case SpaceshipType.Transport:
@@ -32,6 +34,7 @@
 					builder.BuildEngines(Engines.FTL);
 					builder.BuildAvionics(Avionics.Proline);
 					builder.BuildWeaponry(Weaponry.Beam);
+					builder.BuildType(SpaceshipType.Transport);
 					return builder.BuildSpaceship();
 			}
 			return null;

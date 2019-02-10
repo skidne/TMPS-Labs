@@ -32,13 +32,15 @@
 		public Engines Engines { get; set; }
 		public Avionics Avionics { get; set; }
 		public Weaponry Weaponry { get; set; }
+		public SpaceshipType Type { get; set; }
 
 		public Spaceship(string name) => Name = name;
 
 		public override string ToString()
 		{
-			return $"{Name} has {Fuselage} fuselage, {Engines} engines, " +
-				$"{Avionics} avionics and {Weaponry} weaponry.";
+			return $"{Name} is a {Type} type Spaceship, it has {Fuselage} " +
+				$"fuselage, {Engines} engines, {Avionics} avionics and " +
+				$"{Weaponry} weaponry.";
 		}
 	}
 
@@ -48,6 +50,7 @@
 		void BuildEngines(Engines e);
 		void BuildAvionics(Avionics a);
 		void BuildWeaponry(Weaponry w);
+		void BuildType(SpaceshipType t);
 		Spaceship BuildSpaceship();
 	}
 
@@ -62,6 +65,7 @@
 		public void BuildEngines(Engines e) => spaceship.Engines = e;
 		public void BuildAvionics(Avionics a) => spaceship.Avionics = a;
 		public void BuildWeaponry(Weaponry w) => spaceship.Weaponry = w;
+		public void BuildType(SpaceshipType t) => spaceship.Type = t;
 		public Spaceship BuildSpaceship() => spaceship;
 	}
 }

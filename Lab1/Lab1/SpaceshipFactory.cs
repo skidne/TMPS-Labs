@@ -9,30 +9,30 @@
 	{
 		public Spaceship CreateSpaceship(string name, SpaceshipType type)
 		{
-			ISpaceshipBuilder sb = new SpaceshipBuilder(name);
+			ISpaceshipBuilder builder = new SpaceshipBuilder(name);
 
 			switch (type)
 			{
 				case SpaceshipType.Combat:
-					sb.BuildFuselage(Fuselage.SemiMonocoque);
-					sb.BuildEngines(Engines.Photonic);
-					sb.BuildAvionics(Avionics.Rockwell);
-					sb.BuildWeaponry(Weaponry.Missile);
-					return sb.BuildSpaceship();
+					builder.BuildFuselage(Fuselage.SemiMonocoque);
+					builder.BuildEngines(Engines.Photonic);
+					builder.BuildAvionics(Avionics.Rockwell);
+					builder.BuildWeaponry(Weaponry.Missile);
+					return builder.BuildSpaceship();
 
 				case SpaceshipType.Defense:
-					sb.BuildFuselage(Fuselage.Monocoque);
-					sb.BuildEngines(Engines.Quantum);
-					sb.BuildAvionics(Avionics.Bendix);
-					sb.BuildWeaponry(Weaponry.Kinetic);
-					return sb.BuildSpaceship();
+					builder.BuildFuselage(Fuselage.Monocoque);
+					builder.BuildEngines(Engines.Quantum);
+					builder.BuildAvionics(Avionics.Bendix);
+					builder.BuildWeaponry(Weaponry.Kinetic);
+					return builder.BuildSpaceship();
 
 				case SpaceshipType.Transport:
-					sb.BuildFuselage(Fuselage.Framework);
-					sb.BuildEngines(Engines.FTL);
-					sb.BuildAvionics(Avionics.Proline);
-					sb.BuildWeaponry(Weaponry.Beam);
-					return sb.BuildSpaceship();
+					builder.BuildFuselage(Fuselage.Framework);
+					builder.BuildEngines(Engines.FTL);
+					builder.BuildAvionics(Avionics.Proline);
+					builder.BuildWeaponry(Weaponry.Beam);
+					return builder.BuildSpaceship();
 			}
 			return null;
 		}

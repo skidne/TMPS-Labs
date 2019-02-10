@@ -1,18 +1,15 @@
 ﻿namespace Lab1
 {
-	public class Fleet
+	public interface IFleet
 	{
-		private static readonly Fleet fleet = new Fleet();
+		ISpaceshipFactory GetSpaceshipFactory();
+		IStormtrooperFactory GetStormtrooperFactory();
+	}
 
-		public ISpaceshipFactory SsFactory { get; }
-		public IStormtrooperFactory StFactory { get; }
+	public class Fleet : IFleet
+	{
+		public ISpaceshipFactory GetSpaceshipFactory() => new SpaceshipFactory();
 
-		private Fleet()
-		{
-			SsFactory = new SpaceshipFactory();
-			StFactory = new StormtrooperFactory();
-		}
-
-		public static Fleet GetFleet() => fleet;
+		public IStormtrooperFactory GetStormtrooperFactory() => new StormtrooperFactory();
 	}
 }

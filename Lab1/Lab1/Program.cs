@@ -7,9 +7,9 @@ namespace Lab1
 	{
 		static void Main(string[] args)
 		{
-			var fleet = Fleet.GetFleet();
-			var spaceshipFactory = fleet.SsFactory;
-			var stormtrooperFactory = fleet.StFactory;
+			var fleet = CommandCenter.Fleet;
+			var spaceshipFactory = fleet.GetSpaceshipFactory();
+			var stormtrooperFactory = fleet.GetStormtrooperFactory();
 
 			var spaceships = new List<Spaceship>
 			{

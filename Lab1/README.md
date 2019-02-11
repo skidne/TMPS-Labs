@@ -31,4 +31,4 @@
   + The _Stormtrooper_ class (implements _IStormtrooper_) has a method `IStormtrooper Clone()` that returns the clone of a default _Stormtrooper_ (aka Jango Fett) which has to be created beforehand (I should've done it inside the class, but I need an instance of _Spaceship_ to create a _Stormtrooper_, so I just dropped it).
 
 
-Check the [Main](https://github.com/skidne/TMPS-Labs/blob/master/Lab1/Lab1/Program.cs) to see how all of this patterns are used.
+Check the [Main](https://github.com/skidne/TMPS-Labs/blob/master/Lab1/Lab1/Program.cs) to see how these patterns are used.

@@ -18,22 +18,19 @@ namespace Lab1
 				spaceshipFactory.CreateSpaceship("Carrier Vispa", SpaceshipType.Transport)
 			};
 
-			var defaultSandTrooper = stormtrooperFactory
-				.CreateStormtrooper("Azaz", "is usually found on Tatooine.",
-				"Sandtrooper", spaceships[1]);
-			var defaultDeathTrooper = stormtrooperFactory
-				.CreateStormtrooper("Pipi", "is very dangerous. Much Ouch.",
-				"Deathtrooper", spaceships[0]);
-			var defaultScouttrooper = stormtrooperFactory
-				.CreateStormtrooper("Kermit", "has recon and survival skills.",
-				"Scouttrooper", spaceships[2]);
+			var stormtrooper1 = stormtrooperFactory
+				.CreateStormtrooper("Jango Fett", spaceships[1]);
+			var stormtrooper2 = stormtrooperFactory
+				.CreateStormtrooper("Pepe", spaceships[0]);
+			var stormtrooper3 = stormtrooperFactory
+				.CreateStormtrooper("Kermit", spaceships[2]);
 
 			var stormtroopers = new List<IStormtrooper>
 			{
-				defaultSandTrooper.Clone(),
-				defaultDeathTrooper.Clone(),
-				defaultScouttrooper.Clone(),
-				defaultDeathTrooper.Clone()
+				stormtrooper1.Clone(),
+				stormtrooper2.Clone(),
+				stormtrooper3.Clone(),
+				stormtrooper1.Clone()
 			};
 
 			Console.WriteLine("Spaceships:");

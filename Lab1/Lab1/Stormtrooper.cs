@@ -1,11 +1,11 @@
-﻿namespace Lab1
+﻿namespace Labs
 {
-	public interface IStormtrooper
+	public partial interface IStormtrooper
 	{
 		IStormtrooper Clone();
 	}
 
-	class Stormtrooper : IStormtrooper
+	public partial class Stormtrooper : IStormtrooper
 	{
 		public string Identifier { get; }
 		public Spaceship Spaceship { get; }

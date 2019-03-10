@@ -1,4 +1,4 @@
-﻿namespace Lab1
+﻿namespace Labs
 {
 	public sealed class CommandCenter
 	{

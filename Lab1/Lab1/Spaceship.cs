@@ -1,4 +1,4 @@
-﻿namespace Lab1
+﻿namespace Labs
 {
 	public enum SpaceshipType
 	{
@@ -25,7 +25,7 @@
 		Beam, Kinetic, Missile
 	}
 
-	public class Spaceship
+	public partial class Spaceship
 	{
 		public string Name { get; }
 		public Fuselage Fuselage { get; set; }

@@ -57,12 +57,6 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lab1\Labs.csproj">
-      <Project>{07433D74-6370-4ACD-A104-F658527EA6A8}</Project>
-      <Name>Labs</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.1 %28x86 and x64%29</ProductName>
@@ -73,6 +67,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Labs\Labs.csproj">
+      <Project>{07433D74-6370-4ACD-A104-F658527EA6A8}</Project>
+      <Name>Labs</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

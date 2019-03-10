@@ -47,6 +47,7 @@ namespace Client
 
 			stormtroopers[0].Fight(new StormtrooperFighting(new RangeWeapon()));
 			stormtroopers[1].Fight(new StormtrooperFighting(new MeleeToRangeAdapter(new MeleeWeapon())));
+			stormtroopers[2].Fight(new StormtrooperSpecialAttackDecorator(new StormtrooperFighting(new RangeWeapon())));
 			Console.ReadKey();
 		}
 	}

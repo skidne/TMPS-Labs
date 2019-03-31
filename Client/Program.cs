@@ -48,6 +48,25 @@ namespace Client
 			stormtroopers[0].Fight(new StormtrooperFighting(new RangeWeapon()));
 			stormtroopers[1].Fight(new StormtrooperFighting(new MeleeToRangeAdapter(new MeleeWeapon())));
 			stormtroopers[2].Fight(new StormtrooperSpecialAttackDecorator(new StormtrooperFighting(new RangeWeapon())));
+
+			Console.WriteLine("\nBehavioural Patterns (Lab3):");
+			CommandCenter.Instance.AvailableUnits = 7;
+			Console.WriteLine($"Available Units: {CommandCenter.Instance.AvailableUnits}");
+
+			stormtroopers.ForEach(x => (x as ARetreat).Retreat());
+			spaceships.ForEach(x => (x as ARetreat).Retreat());
+
+			Console.WriteLine($"Available Units: {CommandCenter.Instance.AvailableUnits}");
+
+			Console.WriteLine("Retreat command from CommandCenter:");
+			CommandCenter.Instance.SetCommand(new RetreatCommand(
+				spaceshipFactory.CreateSpaceship("Null Star POCO", SpaceshipType.Defense)));
+			CommandCenter.Instance.Execute();
+
+			Console.WriteLine("Null command from CommandCenter:");
+			CommandCenter.Instance.SetCommand(new NullCommand());
+			CommandCenter.Instance.Execute();
+
 			Console.ReadKey();
 		}
 	}

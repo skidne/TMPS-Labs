@@ -1,6 +1,6 @@
 ﻿namespace Labs
 {
-	public sealed class CommandCenter
+	public sealed partial class CommandCenter
 	{
 		private CommandCenter() { }
 

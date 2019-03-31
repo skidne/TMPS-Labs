@@ -51,6 +51,13 @@
     <Compile Include="Lab1\Fleet.cs" />
     <Compile Include="Lab2\SpaceshipFlying.cs" />
     <Compile Include="Lab2\StormtrooperFighting.cs" />
+    <Compile Include="Lab3\CommandCenterAddon.cs" />
+    <Compile Include="Lab3\Mediator.cs" />
+    <Compile Include="Lab3\RetreatCommand.cs" />
+    <Compile Include="Lab3\Retreat.cs" />
+    <Compile Include="Lab3\SpaceshipRetreat.cs" />
+    <Compile Include="Lab3\StatusObserver.cs" />
+    <Compile Include="Lab3\StormtrooperRetreat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Lab1\Spaceship.cs" />
     <Compile Include="Lab1\Stormtrooper.cs" />

@@ -34,7 +34,7 @@
 		public Weaponry Weaponry { get; set; }
 		public SpaceshipType Type { get; set; }
 
-		public Spaceship(string name) => Name = name;
+		public Spaceship(string name) : base() => Name = name;
 
 		public override string ToString()
 		{

@@ -10,7 +10,7 @@
 		public string Identifier { get; }
 		public Spaceship Spaceship { get; }
 
-		public Stormtrooper(string identifier, Spaceship spaceship)
+		public Stormtrooper(string identifier, Spaceship spaceship) : base()
 		{
 			Identifier = identifier;
 			Spaceship = spaceship;

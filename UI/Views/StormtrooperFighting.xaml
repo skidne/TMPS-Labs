@@ -1,0 +1,35 @@
+﻿<Window x:Class="UI.Views.StormtrooperFighting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.Views"
+        mc:Ignorable="d"
+        Title="StormtrooperFighting" Height="400" Width="500">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="5*"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0" Margin="20,20,20,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="1.5*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<ListView Grid.Column="0" Name="Stormtroopers"></ListView>
+			<ListView Grid.Column="1" Name="ActionsListView"></ListView>
+		</Grid>
+		
+		<Grid Grid.Row="1" Margin="20, 10, 20, 10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Button Grid.Column="0" Margin="5, 0, 5, 0" Name="MeleeAttack" Content="Melee Attack" Click="MeleeAttack_OnClick"></Button>
+			<Button Grid.Column="1" Margin="5, 0, 5, 0" Name="RangeAttack" Content="Range Attack" Click="RangeAttack_OnClick"></Button>
+			<Button Grid.Column="2" Margin="5, 0, 5, 0" Name="SpecialAttack" Content="Special Attack" Click="SpecialAttack_OnClick"></Button>
+		</Grid>
+	</Grid>
+</Window>

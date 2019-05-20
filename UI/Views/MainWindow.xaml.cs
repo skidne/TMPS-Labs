@@ -25,8 +25,10 @@ namespace UI
 	{
 		private CreateSpaceship _createSpaceshipWindow;
 		private CreateStormtrooper _createStormtrooperWindow;
+        private WarCheck _seeTechDetails;
+        private SpaceshipDetails _seeSpaceSDetails;
 
-		public MainWindow()
+        public MainWindow()
 		{
 			InitializeComponent();
 			DataContext = new MainWindowViewModel();
@@ -39,8 +41,9 @@ namespace UI
 			var newSpaceship = CommandCenter.Instance.Fleet.GetSpaceshipFactory().CreateSpaceship(spName, spType);
 			((MainWindowViewModel)DataContext).Spaceships.Add(newSpaceship);
 		}
+    
 
-		private void CreateSpaceship_OnClick(object sender, RoutedEventArgs e)
+        private void CreateSpaceship_OnClick(object sender, RoutedEventArgs e)
 		{
 			_createSpaceshipWindow = new CreateSpaceship();
 			_createSpaceshipWindow.Closed += CreateSpaceshipWindowOnClosed;
@@ -63,5 +66,24 @@ namespace UI
 					.Spaceships.FirstOrDefault(x => x.Name == stSp));
 			((MainWindowViewModel)DataContext).Stormtroopers.Add(newStormtrooper);
 		}
-	}
+
+        private void ButSpace_Click(object sender, RoutedEventArgs e)
+        {
+            _seeTechDetails = new WarCheck();         
+            _seeTechDetails.Show();
+        }
+
+        private void SpaceDetails_Click(object sender, RoutedEventArgs e)
+        {
+            _seeSpaceSDetails = new SpaceshipDetails();
+            _seeSpaceSDetails.Show();
+        }
+
+        private void StormtrooperFighting_Click(object sender, RoutedEventArgs e)
+        {
+			var fighting = new Views.StormtrooperFighting();
+			fighting.Show();
+        }
+       
+    }
 }
